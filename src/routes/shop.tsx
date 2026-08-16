@@ -212,8 +212,6 @@ function ShopPage() {
                 className="model-viewer"
               />
               <span className="armory-beam" />
-              <span className="armory-disc" />
-              <span className="armory-disc inner" />
             </div>
             <div className="armory-stage-info">
               <h2 className="armory-name">{selected.name}</h2>
