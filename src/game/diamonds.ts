@@ -22,7 +22,7 @@ export function grantAdDiamonds(count = DIAMONDS_PER_AD): number {
 
 /** Diamond price for an item, derived from its ticket cost. */
 export const diamondCost = (ticketCost: number): number =>
-  ticketCost <= 0 ? 0 : Math.ceil(ticketCost / 1500) + 1;
+  ticketCost <= 0 ? 0 : (Math.ceil(ticketCost / 1500) + 1) * 10;
 
 /** Spends diamonds if the balance allows it. */
 export function spendDiamonds(amount: number): boolean {
