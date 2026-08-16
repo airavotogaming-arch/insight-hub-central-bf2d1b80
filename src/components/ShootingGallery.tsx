@@ -237,15 +237,6 @@ export default function ShootingGallery() {
     saveTourProgress(TOUR_STEPS);
   };
 
-  const restartTour = () => {
-    try {
-      localStorage.removeItem(TOUR_KEY);
-      localStorage.removeItem("sg_tour_done");
-    } catch {
-      /* ignore */
-    }
-    setTourStep(1);
-  };
 
 
 
