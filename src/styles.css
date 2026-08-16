@@ -2811,3 +2811,8 @@ a.mm-nav, a.mm-view-all { text-decoration: none; display: inline-flex; align-ite
   .tod-picker { margin-top: 0.2rem; }
   .tod-option { padding: 0.2rem 0.15rem; }
 }
+
+@media (max-height: 560px) {
+  .overlay-card .logo-wrap,
+  .overlay-card .logo-wrap.sm { max-width: 18vh !important; }
+}
