@@ -6,7 +6,7 @@ const ADS_WATCHED = "carnival-diamond-ads";
 const MAX_DIAMONDS = 99_999;
 
 /** Diamonds granted for each completed rewarded ad. */
-export const DIAMONDS_PER_AD = 1;
+export const DIAMONDS_PER_AD = 3;
 
 export const getDiamonds = () => safeInt(secureGet<number>(DIAMONDS, 0), MAX_DIAMONDS);
 export const setDiamonds = (v: number) => secureSet(DIAMONDS, safeInt(v, MAX_DIAMONDS));
