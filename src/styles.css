@@ -1699,6 +1699,8 @@ html {
 
 
 
+
+
 /* ---------------- logo: loading skeleton + float motion ---------------- */
 .logo-wrap {
   position: relative;
@@ -2142,33 +2144,71 @@ html {
 
 .mm-credit { text-align: center; font-size: 0.5rem; color: rgba(255,235,190,0.6); flex: none; margin: 0; }
 
+/* ---- tablets & phones: stack + scroll instead of squashing ---- */
 @media (max-width: 900px) {
-  .mm-body { grid-template-columns: 1fr; }
-  .mm-center { order: -1; }
+  .mm-root {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.55rem;
+    padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));
+  }
+  .mm-bg { position: fixed; }
+  .mm-body {
+    grid-template-columns: 1fr;
+    flex: none;
+    align-items: stretch;
+  }
+  .mm-center { order: -1; gap: 0.7rem; }
   .mm-col { flex-direction: row; flex-wrap: wrap; }
-  .mm-col > .mm-panel { flex: 1 1 220px; }
-  .mm-logo { width: min(64vw, 340px); max-height: 30vh; }
+  .mm-col > .mm-panel { flex: 1 1 min(100%, 240px); }
+  .mm-logo { width: min(70vw, 340px); max-height: none; margin-top: 0; }
   .mm-top { justify-content: center; }
+  .mm-gift { width: 42%; max-height: 120px; }
+  .mm-blaster { width: 70%; max-height: 130px; }
+  .mm-blaster-3d { height: 130px; max-height: 130px; }
 }
-@media (max-width: 520px) {
+@media (max-width: 640px) {
+  .mm-top { gap: 0.4rem; }
+  .mm-player { flex: 1 1 100%; justify-content: center; border-radius: 0.85rem; }
+  .mm-resources { width: 100%; }
+  .mm-res { flex: 1 1 auto; justify-content: center; }
   .mm-top-actions { width: 100%; justify-content: center; }
-  .mm-nav { flex: 1 1 42%; justify-content: center; padding: 0.3rem 0.45rem; font-size: 0.55rem; }
+  .mm-icon-btn { flex: 1 1 0; min-width: 0; }
+  .mm-nav { flex: 1 1 44%; justify-content: center; padding: 0.45rem; font-size: 0.55rem; }
+  .mm-mode { flex: 1 1 45%; justify-content: center; }
+  .mm-play { width: 100%; max-width: 320px; }
+}
+@media (max-width: 380px) {
+  .mm-logo { width: 78vw; }
+  .mm-icon-btn span:not(.mm-icon-glyph):not(.mm-dot) { font-size: 0.4rem; }
+  .mm-nav { font-size: 0.5rem; padding: 0.42rem 0.3rem; }
 }
 
+
 @media (orientation: landscape) and (max-height: 700px) {
-  .mm-body { grid-template-columns: minmax(120px, 18%) 1fr minmax(120px, 18%); }
+  .mm-root { overflow-y: auto; }
+  .mm-body { grid-template-columns: minmax(120px, 20%) 1fr minmax(120px, 20%); align-items: start; }
   .mm-center { order: 0; }
-  .mm-logo { width: min(32vw, 320px); max-height: 34vh; }
-  .mm-play { padding: 0.4rem 1.8rem; }
+  .mm-col { flex-direction: column; flex-wrap: nowrap; }
+  .mm-logo { width: min(30vw, 300px); max-height: 30vh; margin-top: 0; }
+  .mm-play { padding: 0.4rem 1.8rem; width: auto; margin-top: 0.4rem; }
   .mm-play-text { font-size: clamp(0.95rem, 2.2vw, 1.7rem); }
   .mm-panel { padding: 0.32rem 0.4rem 0.38rem; }
   .mm-panel-title { font-size: clamp(0.52rem, 0.75vw, 0.68rem); }
   .mm-avatar { width: 32px; height: 32px; }
-  .mm-player { padding: 0.18rem 0.5rem 0.18rem 0.18rem; }
+  .mm-player { flex: none; padding: 0.18rem 0.5rem 0.18rem 0.18rem; border-radius: 999px; }
   .mm-res { font-size: 0.55rem; padding: 0.16rem 0.22rem 0.16rem 0.36rem; }
-  .mm-icon-btn { min-width: 50px; padding: 0.18rem 0.22rem; font-size: 0.4rem; }
-  .mm-nav { padding: 0.32rem 0.7rem; font-size: 0.58rem; }
+  .mm-resources { width: auto; }
+  .mm-top-actions { width: auto; }
+  .mm-icon-btn { flex: none; min-width: 50px; padding: 0.18rem 0.22rem; font-size: 0.4rem; }
+  .mm-nav { flex: none; padding: 0.32rem 0.7rem; font-size: 0.58rem; }
+  .mm-mode { flex: none; }
+  .mm-gift { width: 34%; max-height: 72px; }
+  .mm-blaster, .mm-blaster-3d { height: 80px; min-height: 80px; max-height: 80px; width: 100%; }
+  .mm-missions .mm-mission:nth-child(n + 3) { display: none; }
 }
+
 
 
 
@@ -2747,4 +2787,32 @@ a.mm-nav, a.mm-view-all { text-decoration: none; display: inline-flex; align-ite
 }
 @media (prefers-reduced-motion: reduce) {
   .mm-root, .armory { animation: none; }
+}
+
+/* ---------------- short viewports (landscape phones) ---------------- */
+@media (max-height: 560px) {
+  .overlay-card { max-height: 92dvh; padding: 0.6rem 0.75rem; }
+  .overlay-card .fair-title { font-size: clamp(1.1rem, 4vw, 1.7rem); margin-bottom: 0.05em; }
+  .joy-logo { max-height: 4.5rem; }
+  .joy-logo.sm { max-height: 2.6rem; margin-bottom: 0.1rem; }
+  .logo-wrap { max-width: min(560px, 28vh); }
+  .logo-wrap.sm { max-width: min(220px, 20vh); }
+  .mm-logo { width: min(30vw, 240px); }
+  .fair-sub { font-size: 0.7rem; margin-top: 0.2rem; }
+  .warning-list { margin: 0.25rem 0; gap: 0.22rem; }
+  .warning-row { padding: 0.26rem 0.4rem; font-size: 0.64rem; }
+  .warning-thumb { width: 26px; height: 26px; }
+  .rules { margin: 0.5rem 0; gap: 0.25rem; }
+  .rules li { font-size: 0.58rem; padding: 0.25rem 0.5rem; }
+  .results { gap: 0.4rem; margin: 0.45rem 0; }
+  .help-list { gap: 0.3rem; margin: 0.4rem 0 0.15rem; }
+  .help-list li { font-size: 0.68rem; }
+  .fair-button { padding: 0.42rem 0.9rem; font-size: 0.75rem; }
+  .tod-picker { margin-top: 0.2rem; }
+  .tod-option { padding: 0.2rem 0.15rem; }
+}
+
+@media (max-height: 560px) {
+  .overlay-card .logo-wrap,
+  .overlay-card .logo-wrap.sm { max-width: 18vh !important; }
 }
