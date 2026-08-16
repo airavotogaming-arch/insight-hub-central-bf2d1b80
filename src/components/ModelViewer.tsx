@@ -62,13 +62,14 @@ export function ModelViewer({ kind, itemId, className }: ModelViewerProps) {
       model = buildCrosshair3D(item.style, item.hex);
     }
 
-    // centre + normalise scale so every item frames identically
+    // centre + normalise scale so every item frames identically.
+    // Guns render larger so players can see skin detail clearly.
     const box = new THREE.Box3().setFromObject(model);
     const centre = box.getCenter(new THREE.Vector3());
     const size = box.getSize(new THREE.Vector3());
     model.position.sub(centre);
     const span = Math.max(size.x, size.y, size.z) || 1;
-    model.scale.setScalar(2.6 / span);
+    model.scale.setScalar((kind === "gun" ? 4.2 : 2.6) / span);
     pivot.add(model);
 
     let dist = 6.2;
