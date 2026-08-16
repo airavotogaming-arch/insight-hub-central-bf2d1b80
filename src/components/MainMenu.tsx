@@ -27,7 +27,6 @@ export interface MainMenuProps {
   onLeaderboard?: () => void;
   /** called after a mystery box is opened, with the new coin balance */
   onRewardClaimed?: (bank: number) => void;
-  onTutorial?: (() => void) | undefined;
 }
 
 function Bar({ value, max, tone = "gold" }: { value: number; max: number; tone?: string }) {
@@ -52,7 +51,6 @@ export default function MainMenu({
   onSettings,
   onLeaderboard,
   onRewardClaimed,
-  onTutorial,
 }: MainMenuProps) {
   const [reward, setReward] = useState<RewardState | null>(null);
   const [rewardNote, setRewardNote] = useState("");

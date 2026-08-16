@@ -1035,14 +1035,6 @@ export default function ShootingGallery() {
           onRewardClaimed={(next) => setBankState(next)}
           onInstructions={() => setShowInstructions(true)}
           onSettings={() => setShowSound(true)}
-          onTutorial={
-            isTouch
-              ? () => {
-                  restartTour();
-                  beginRound();
-                }
-              : undefined
-          }
         />
       )}
 
