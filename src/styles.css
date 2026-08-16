@@ -1696,28 +1696,6 @@ html {
 
 }
 
-/* ---------------- short viewports (landscape phones) ---------------- */
-@media (max-height: 560px) {
-  .overlay-card { max-height: 92dvh; padding: 0.6rem 0.75rem; }
-  .overlay-card .fair-title { font-size: clamp(1.1rem, 4vw, 1.7rem); margin-bottom: 0.05em; }
-  .joy-logo { max-height: 4.5rem; }
-  .joy-logo.sm { max-height: 2.6rem; margin-bottom: 0.1rem; }
-  .logo-wrap { max-width: min(560px, 28vh); }
-  .logo-wrap.sm { max-width: min(220px, 20vh); }
-  .mm-logo { width: min(30vw, 240px); }
-  .fair-sub { font-size: 0.7rem; margin-top: 0.2rem; }
-  .warning-list { margin: 0.25rem 0; gap: 0.22rem; }
-  .warning-row { padding: 0.26rem 0.4rem; font-size: 0.64rem; }
-  .warning-thumb { width: 26px; height: 26px; }
-  .rules { margin: 0.5rem 0; gap: 0.25rem; }
-  .rules li { font-size: 0.58rem; padding: 0.25rem 0.5rem; }
-  .results { gap: 0.4rem; margin: 0.45rem 0; }
-  .help-list { gap: 0.3rem; margin: 0.4rem 0 0.15rem; }
-  .help-list li { font-size: 0.68rem; }
-  .fair-button { padding: 0.42rem 0.9rem; font-size: 0.75rem; }
-  .tod-picker { margin-top: 0.2rem; }
-  .tod-option { padding: 0.2rem 0.15rem; }
-}
 
 
 
@@ -2809,4 +2787,27 @@ a.mm-nav, a.mm-view-all { text-decoration: none; display: inline-flex; align-ite
 }
 @media (prefers-reduced-motion: reduce) {
   .mm-root, .armory { animation: none; }
+}
+
+/* ---------------- short viewports (landscape phones) ---------------- */
+@media (max-height: 560px) {
+  .overlay-card { max-height: 92dvh; padding: 0.6rem 0.75rem; }
+  .overlay-card .fair-title { font-size: clamp(1.1rem, 4vw, 1.7rem); margin-bottom: 0.05em; }
+  .joy-logo { max-height: 4.5rem; }
+  .joy-logo.sm { max-height: 2.6rem; margin-bottom: 0.1rem; }
+  .logo-wrap { max-width: min(560px, 28vh); }
+  .logo-wrap.sm { max-width: min(220px, 20vh); }
+  .mm-logo { width: min(30vw, 240px); }
+  .fair-sub { font-size: 0.7rem; margin-top: 0.2rem; }
+  .warning-list { margin: 0.25rem 0; gap: 0.22rem; }
+  .warning-row { padding: 0.26rem 0.4rem; font-size: 0.64rem; }
+  .warning-thumb { width: 26px; height: 26px; }
+  .rules { margin: 0.5rem 0; gap: 0.25rem; }
+  .rules li { font-size: 0.58rem; padding: 0.25rem 0.5rem; }
+  .results { gap: 0.4rem; margin: 0.45rem 0; }
+  .help-list { gap: 0.3rem; margin: 0.4rem 0 0.15rem; }
+  .help-list li { font-size: 0.68rem; }
+  .fair-button { padding: 0.42rem 0.9rem; font-size: 0.75rem; }
+  .tod-picker { margin-top: 0.2rem; }
+  .tod-option { padding: 0.2rem 0.15rem; }
 }
