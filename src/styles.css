@@ -2735,7 +2735,7 @@ a.mm-nav, a.mm-view-all { text-decoration: none; display: inline-flex; align-ite
 .armory-foot { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
 
 @media (prefers-reduced-motion: reduce) {
-  .armory::before, .armory-disc { animation: none; }
+  .armory::before { animation: none; }
 }
 
 /* smooth page/menu entrance when returning from the prize shop */
