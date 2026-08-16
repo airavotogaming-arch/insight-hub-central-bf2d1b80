@@ -237,15 +237,6 @@ export default function ShootingGallery() {
     saveTourProgress(TOUR_STEPS);
   };
 
-  const restartTour = () => {
-    try {
-      localStorage.removeItem(TOUR_KEY);
-      localStorage.removeItem("sg_tour_done");
-    } catch {
-      /* ignore */
-    }
-    setTourStep(1);
-  };
 
 
 
@@ -1035,14 +1026,6 @@ export default function ShootingGallery() {
           onRewardClaimed={(next) => setBankState(next)}
           onInstructions={() => setShowInstructions(true)}
           onSettings={() => setShowSound(true)}
-          onTutorial={
-            isTouch
-              ? () => {
-                  restartTour();
-                  beginRound();
-                }
-              : undefined
-          }
         />
       )}
 
@@ -1479,12 +1462,13 @@ export default function ShootingGallery() {
         >
           <div className="overlay-card help-card" onClick={(e) => e.stopPropagation()}>
             <h2 className="fair-title text-[clamp(1.6rem,5vw,2.8rem)]">How to Play</h2>
+            <p className="fair-sub">Knock down carnival toys, build combos and bank tickets.</p>
             <ol className="help-list">
               <li>
                 <span className="help-step">1</span>
                 <span>
                   {isTouch
-                    ? "Press and hold anywhere on the screen — a green laser sight switches on."
+                    ? "Press and hold anywhere on the screen — the laser sight switches on."
                     : "Move your mouse to sweep the crosshair across the stall."}
                 </span>
               </li>
@@ -1492,25 +1476,37 @@ export default function ShootingGallery() {
                 <span className="help-step">2</span>
                 <span>
                   {isTouch
-                    ? "Drag your finger to move the crosshair. Adjust Touch Drag sensitivity in Settings if it feels too fast or slow."
-                    : "Line the crosshair up with a toy, gift box or the golden gift."}
+                    ? "Drag your finger to aim, then lift it to fire. Tune Touch Drag speed in Settings."
+                    : "Line the crosshair up with a toy and left click to fire."}
                 </span>
               </li>
               <li>
                 <span className="help-step">3</span>
-                <span>{isTouch ? "Lift your finger to fire the blaster." : "Left click to fire the blaster."}</span>
+                <span>Every toy has its own point value — check POINTS INFO for the full list.</span>
               </li>
               <li>
                 <span className="help-step">4</span>
-                <span>Chain hits without missing to build your combo multiplier.</span>
+                <span>Hit targets back to back without missing to raise your combo multiplier.</span>
               </li>
               <li>
                 <span className="help-step">5</span>
-                <span>Avoid bombs — they cost 200 points and reset your combo.</span>
+                <span>Grab power-ups: ⏱ adds time, ⭐ boosts score, 💥 gives a spread shot.</span>
               </li>
               <li>
                 <span className="help-step">6</span>
-                <span>Press ESC any time to pause the round.</span>
+                <span>Never shoot bombs — they drain points and break your combo instantly.</span>
+              </li>
+              <li>
+                <span className="help-step">7</span>
+                <span>Clear waves before the timer ends; a boss appears on later rounds.</span>
+              </li>
+              <li>
+                <span className="help-step">8</span>
+                <span>Score earns coins & tickets — spend them in the Prize Shop on blasters and crosshairs.</span>
+              </li>
+              <li>
+                <span className="help-step">9</span>
+                <span>{isTouch ? "Tap the pause button any time to take a break." : "Press ESC any time to pause the round."}</span>
               </li>
             </ol>
             <button className="fair-button" onClick={() => setShowHelp(false)}>

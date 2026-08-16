@@ -27,7 +27,6 @@ export interface MainMenuProps {
   onLeaderboard?: () => void;
   /** called after a mystery box is opened, with the new coin balance */
   onRewardClaimed?: (bank: number) => void;
-  onTutorial?: (() => void) | undefined;
 }
 
 function Bar({ value, max, tone = "gold" }: { value: number; max: number; tone?: string }) {
@@ -52,7 +51,6 @@ export default function MainMenu({
   onSettings,
   onLeaderboard,
   onRewardClaimed,
-  onTutorial,
 }: MainMenuProps) {
   const [reward, setReward] = useState<RewardState | null>(null);
   const [rewardNote, setRewardNote] = useState("");
@@ -333,11 +331,11 @@ export default function MainMenu({
         <Link to="/collection" className="mm-nav">
           <span>🎒</span> COLLECTION
         </Link>
-        <button className="mm-nav" onClick={onInstructions}>
+        <button className="mm-nav" onClick={onHelp}>
           <span>📖</span> HOW TO PLAY
         </button>
-        <button className="mm-nav" onClick={onTutorial ?? onHelp}>
-          <span>🎓</span> TUTORIAL
+        <button className="mm-nav" onClick={onInstructions}>
+          <span>🎯</span> POINTS INFO
         </button>
       </nav>
 
